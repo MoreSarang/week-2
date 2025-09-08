@@ -38,18 +38,16 @@ def lowest_score(names, scores) -> str:
     idx = np.argmin(scores)
     return names[idx]
 
-# Part 2
+
 def sort_names(names, scores) -> list:
     """
     Return a list of (name, score) pairs sorted by descending score.
-    """   
+    """
     names = np.array(names)
     scores = np.array(scores)
 
     sorted_indices = np.argsort(scores)[::-1]
-    sorted_names = names[sorted_indices]
-    sorted_scores = scores[sorted_indices]
-    return list(zip(sorted_names.tolist(), sorted_scores.tolist()))
+    return names[sorted_indices].tolist()
 
 if __name__ == "__main__":
     names = np.array(['Hannah', 'Astrid', 'Abdul', 'Mauve', 'Jung'])

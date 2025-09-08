@@ -1,5 +1,6 @@
 import numpy as np
 
+
 # Exercise 1
 def ways(n: int) -> int:
   
@@ -27,23 +28,28 @@ if __name__ == "__main__":
 
 # Exercise 2
 # Part 1
-def lowest_score(names: np.ndarray, scores: np.ndarray) -> str:
+def lowest_score(names, scores) -> str:
     """
     Return the name of the student with the lowest score.
     """
+    names = np.array(names)
+    scores = np.array(scores)
+
     idx = np.argmin(scores)
     return names[idx]
 
 # Part 2
-def sort_names(names: np.ndarray, scores: np.ndarray) -> list:
+def sort_names(names, scores) -> list:
     """
     Return a list of (name, score) pairs sorted by descending score.
-    """
+    """   
+    names = np.array(names)
+    scores = np.array(scores)
+
     sorted_indices = np.argsort(scores)[::-1]
     sorted_names = names[sorted_indices]
     sorted_scores = scores[sorted_indices]
-    return list(zip(sorted_names, sorted_scores))
-
+    return list(zip(sorted_names.tolist(), sorted_scores.tolist()))
 
 if __name__ == "__main__":
     names = np.array(['Hannah', 'Astrid', 'Abdul', 'Mauve', 'Jung'])
@@ -52,4 +58,3 @@ if __name__ == "__main__":
     print("")
     print(lowest_score(names, scores), "has lowest score")
     print("Students sorted by scores:", sort_names(names, scores))
-
